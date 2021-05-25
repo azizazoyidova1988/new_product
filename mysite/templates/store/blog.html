@@ -1,0 +1,61 @@
+{%extends 'store/base.html'%}
+{%load static%}
+{%block content %}
+<body class="main-layout blog_page">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="{%static 'store/images/loading.gif'%}" alt="" /></div>
+    </div>
+
+    <div class="wrapper">
+
+
+    <div id="content">
+
+<div class="yellow_bg">
+   <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="title">
+                     <h2>Our Blog</h2>
+                    
+                  </div>
+               </div>
+            </div>
+          </div>
+</div>
+
+<!-- blog -->
+<div class="blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="title">
+                                <i><img src="{% static 'store/images/title.png' %}" alt="#"/></i>
+                                <h2>Our Blog</h2>
+                                <span>when looking at its layout. The point of using Lorem</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for blog in blogs %}
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 ">
+                            <div class="blog_box">
+                                <div class="blog_img_box">
+                                    <figure><img src="/media/{{blog.image}}" alt="#"/>
+
+                                    </figure>
+                                </div>
+                                <h3>{{blog.title}}</h3>
+                                <p>{{blog.description}} </p>
+                            </div>
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    </div>
+    <div class="overlay"></div>
+{% endblock %}

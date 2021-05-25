@@ -1,0 +1,58 @@
+ {%extends 'store/base.html'%}
+{%load static%}
+{%block content %}
+<body class="main-layout Recipes_page">
+       <div class="wrapper">
+
+    <div id="content">
+
+    <div class="yellow_bg">
+   <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="title">
+                     <h2>Our Recipes</h2>
+                    
+                  </div>
+               </div>
+            </div>
+          </div>
+</div>
+
+    <section class="resip_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ourheading">
+                            <h2>Our Recipes</h2>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="owl-carousel owl-theme owl-loaded owl-drag">
+                                    {%for recipe in recipes%}
+                                    <div class="item">
+                                        <div class="product_blog_img">
+                                            <img src="/media/{{recipe.image}}" alt="#"/>
+                                        </div>
+                                        <div class="product_blog_cont">
+                                            <h3>{{recipe.title}}</h3>
+                                            <h4><span class="theme_color">$</span>{{recipe.price}}</h4>
+                                        </div>
+                                    </div>
+                                    {%endfor%}
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    </div>
+    <div class="overlay"></div>
+   {% endblock %}

@@ -1,10 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Register List</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="{%url 'dashboard' %}">Home</a></li>
+          <li class="breadcrumb-item active">Register List</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title"></h3>
+              </div>
+
+              <form method="post" >
+                  {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label > Name</label>
+                      {{form.name}}
+
+                  </div>
+                </div>
+
+                 <div class="card-body">
+                  <div class="form-group">
+                    <label >Email</label>
+                      {{form.email}}
+
+                  </div>
+                </div>
+
+                   <div class="card-body">
+                  <div class="form-group">
+                    <label >Password</label>
+                      {{form.password}}
+
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
